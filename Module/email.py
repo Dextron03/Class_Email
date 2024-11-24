@@ -25,7 +25,7 @@ class Email:
                 server.send_message(message)  # Envía el mensaje
         except smtplib.SMTPException as e:
             print(f"Error en el envío de correo: {e}")
-        raise e
+            raise e
             
     def send_simple_message(self,subject:str, message:str):
         simple_msg = self.msg
