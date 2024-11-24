@@ -1,5 +1,8 @@
-venv
+.venv
 .env
 pruebas.py
 hola.html
 send_email.py
+main_prueba.py
+__pycache__
+templates
