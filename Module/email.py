@@ -72,7 +72,6 @@ class Email:
         Envía un correo electrónico con una plantilla HTML renderizada.
 
         :param subject: str, El asunto del correo.
-        :param message: str, Un mensaje de texto que se incluirá en el correo.
         :param context: dict, Diccionario que contiene los valores para rellenar las variables dentro de la plantilla HTML.
         :param path_template_dir: str, Ruta del directorio donde se encuentra la plantilla HTML.
         :param path: str, Nombre del archivo de la plantilla HTML.
