@@ -1,8 +1,6 @@
 import os
 import smtplib
-import mimetypes
 from email.message import EmailMessage
-from email.mime.text import MIMEText
 from jinja2 import Environment, FileSystemLoader
 
 
@@ -62,14 +60,14 @@ class Email:
         :param message: str, El contenido del mensaje (cuerpo del correo).
         """
         simple_msg = self.msg
-        simple_msg.set_content(MIMEText(message))
+        simple_msg.set_content(message)
         simple_msg['From'] = self.sender
         simple_msg['To'] = self.receptor
         simple_msg['Subject'] = subject
         
         self.connect_to_server(simple_msg)
     
-    def send_templates_html(self, subject:str, message:str, context:dict, path_template_dir:str, path:str):
+    def send_templates_html(self, subject:str, path_template_dir:str, path:str,context:dict):
         """
         Envía un correo electrónico con una plantilla HTML renderizada.
 
@@ -80,7 +78,6 @@ class Email:
         :param path: str, Nombre del archivo de la plantilla HTML.
         """
         msg_wfile = self.msg
-        msg_wfile.set_content(MIMEText(message))
         msg_wfile['From'] = self.sender
         msg_wfile['To'] = self.receptor
         msg_wfile['Subject'] = subject
